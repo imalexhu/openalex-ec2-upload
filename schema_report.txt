@@ -1,0 +1,214 @@
+=== Checking works ===
+CSV headers from csv-files/works.csv:
+id,doi,title,display_name,publication_year,publication_date,type,cited_by_count,is_retracted,is_paratext,cited_by_api_url,abstract_inverted_index,language,updated_date
+
+Database schema for openalex.works:
+       column_name       |          data_type          
+-------------------------+-----------------------------
+ id                      | text
+ doi                     | text
+ title                   | text
+ display_name            | text
+ publication_year        | integer
+ publication_date        | date
+ type                    | text
+ type_crossref           | text
+ cited_by_count          | integer
+ is_retracted            | boolean
+ is_paratext             | boolean
+ cited_by_api_url        | text
+ abstract_inverted_index | json
+ language                | text
+ has_fulltext            | boolean
+ fulltext_origin         | text
+ volume                  | text
+ issue                   | text
+ first_page              | text
+ last_page               | text
+ updated_date            | timestamp without time zone
+(21 rows)
+
+
+First 5 lines of CSV data:
+https://openalex.org/W4312954092,https://doi.org/10.3030/641811,,,2011,2011-03-20,grant,0,False,False,https://api.openalex.org/works?filter=cites:W4312954092,,,2023-05-17T07:42:51.132402
+https://openalex.org/W4298954679,,Anomalous cooling of the parallel velocity in seeded beams,Anomalous cooling of the parallel velocity in seeded beams,2004,2004-06-16,article,0,False,False,https://api.openalex.org/works?filter=cites:W4298954679,,en,2023-05-29T21:03:47.676730
+https://openalex.org/W4367174134,https://doi.org/10.41014/jmb.2301.01011,Comparative Genomic Analysis and BTEX Degradation Pathways of a Thermotolerant Cupriavidus cauae PHS1.,Comparative Genomic Analysis and BTEX Degradation Pathways of a Thermotolerant Cupriavidus cauae PHS1.,2023,2023-04-10,article,0,False,False,https://api.openalex.org/works?filter=cites:W4367174134,"{'Volatile': [0], 'organic': [1], 'compounds': [2, 18], 'such': [3], 'as': [4, 28, 51], 'benzene,': [5], 'toluene,': [6], 'ethylbenzene,': [7], 'and': [8, 24, 70, 82, 102, 113, 122, 146, 160], 'isomers': [9], 'of': [10, 16, 62, 74, 96, 99, 108, 118, 135, 163], 'xylenes': [11], '(BTEX)': [12], 'constitute': [13], 'a': [14, 71], 'group': [15], 'monoaromatic': [17], 'that': [19], 'are': [20, 57], 'found': [21], 'in': [22, 88, 173], 'petroleum': [23], 'have': [25], 'been': [26], 'classified': [27], 'priority': [29], 'pollutants.': [30], 'In': [31], 'this': [32], 'study,': [33], 'based': [34], 'on': [35, 157], 'its': [36, 66], 'newly': [37], 'sequenced': [38], 'genome,': [39], 'we': [40, 80], 'reclassified': [41], 'the': [42, 58, 75, 84, 92, 109, 114, 119, 129, 149, 158, 164], 'previously': [43], 'identified': [44], 'BTEX-degrading': [45, 76, 85, 93, 161], 'thermotolerant': [46, 165], 'strain': [47, 166], 'Ralstonia': [48], 'sp.': [49], 'PHS1': [50, 110, 169], 'Cupriavidus': [52], 'cauae': [53, 64, 90, 168], 'PHS1.': [54], 'Also': [55], 'presented': [56], 'complete': [59], 'genome': [60, 159], 'sequence': [61, 112], 'C.': [63, 89, 167], 'PHS1,': [65, 91], 'annotation,': [67], 'species': [68], 'delineation,': [69], 'comparative': [72], 'analysis': [73], 'gene': [77, 94], 'cluster.': [78], 'Moreover,': [79], 'cloned': [81], 'characterized': [83], 'pathway': [86, 162], 'genes': [87], 'cluster': [95], 'which': [97], 'consists': [98], 'two': [100], 'monooxygenases': [101, 121], 'meta-cleavage': [103], 'genes.': [104], 'A': [105], 'genome-wide': [106], 'investigation': [107], 'coding': [111], 'experimentally': [115], 'confirmed': [116], 'regioselectivity': [117], 'toluene': [120], 'catechol': [123], '2,3-dioxygenase': [124], 'allowed': [125], 'us': [126], 'to': [127], 'reconstruct': [128], 'BTEX': [130, 136], 'degradation': [131, 134], 'pathway.': [132], 'The': [133, 153], 'begins': [137], 'with': [138], 'aromatic': [139], 'ring': [140, 144], 'hydroxylation,': [141], 'followed': [142], 'by': [143], 'cleavage,': [145], 'eventually': [147], 'enters': [148], 'core': [150], 'carbon': [151], 'metabolism.': [152], 'information': [154], 'provided': [155], 'here': [156], 'could': [170], 'be': [171], 'useful': [172], 'constructing': [174], 'an': [175], 'efficient': [176], 'production': [177], 'host.': [178]}",en,2023-05-29T09:17:20.501145
+https://openalex.org/W3127850345,,Ansatz-Independent Variational Quantum Classifier,Ansatz-Independent Variational Quantum Classifier,2021,2021-02-02,article,0,False,False,https://api.openalex.org/works?filter=cites:W3127850345,"{'The': [0], 'paradigm': [1], 'of': [2, 31, 72, 89, 155, 183, 233], 'variational': [3, 196], 'quantum': [4, 11, 15, 34, 91, 101, 203], 'classifiers': [5, 36, 80], '(VQCs)': [6], 'encodes': [7], '\\textit{classical': [8], 'information}': [9], 'as': [10, 104], 'states,': [12], 'followed': [13], 'by': [14, 50, 189], 'processing': [16], 'and': [17, 60, 68, 75, 111, 133, 236], 'then': [18, 134], 'measurements': [19], 'to': [20], 'generate': [21], 'classical': [22, 79], 'predictions.': [23], 'VQCs': [24, 132], 'are': [25, 81], 'promising': [26], 'candidates': [27], 'for': [28, 58, 200, 205, 222], 'efficient': [29, 156, 202, 220], 'utilization': [30], 'a': [32, 69, 105, 108, 152, 175, 195, 206], 'near-term': [33], 'device:': [35], 'involving': [37], '$M$-dimensional': [38], 'datasets': [39], 'can': [40], 'be': [41], 'implemented': [42], 'with': [43, 78, 107, 214], 'only': [44], '$\\lceil': [45], '\\log_2': [46], 'M': [47], '\\rceil$': [48], 'qubits': [49], 'using': [51], 'an': [52, 96, 219], 'amplitude': [53], 'encoding.': [54], 'A': [55], 'general': [56], 'framework': [57, 154, 221], 'designing': [59, 201], 'training': [61, 114], 'VQCs,': [62, 90, 158], 'however,': [63], 'has': [64], 'not': [65, 82], 'been': [66], 'proposed,': [67], 'fundamental': [70], 'understanding': [71], 'its': [73], 'power': [74], 'analytical': [76], 'relationships': [77], 'well': [83], 'understood.': [84], 'An': [85], 'encouraging': [86], 'specific': [87], 'embodiment': [88], 'circuit': [92, 106, 197], 'learning': [93, 116], '(QCL),': [94], 'utilizes': [95], 'ansatz:': [97], 'it': [98, 167], 'expresses': [99], 'the': [100, 117, 128, 142, 162, 170, 181, 190, 212, 215, 229, 234, 237], 'evolution': [102, 172], 'operator': [103, 173], 'predetermined': [109], 'topology': [110], 'parametrized': [112], 'gates;': [113], 'involves': [115], 'gate': [118], 'parameters': [119], 'through': [120], 'optimization.': [121], 'In': [122], 'this': [123], 'letter,': [124], 'we': [125, 150, 160, 178, 193, 217], 'first': [126], 'address': [127], 'open': [129], 'questions': [130], 'about': [131], 'show': [135, 179], 'that': [136, 180], 'they,': [137], 'including': [138], 'QCL,': [139], 'fit': [140], 'inside': [141], 'well-known': [143], 'kernel': [144, 164], 'method.': [145], 'Based': [146], 'on': [147, 243], 'such': [148], 'correspondence,': [149], 'devise': [151], 'design': [153], 'ansatz-independent': [157], 'which': [159], 'call': [161], 'unitary': [163, 171, 208], 'method': [165], '(UKM):': [166], 'directly': [168], 'optimizes': [169], 'in': [174], 'VQC.': [176], 'Thus,': [177], 'performance': [182, 232], 'QCL': [184], 'is': [185], 'bounded': [186], 'from': [187], 'above': [188], 'UKM.': [191], 'Next,': [192], 'propose': [194], 'realization': [198], '(VCR)': [199], 'circuits': [204], 'given': [207], 'operator.': [209], 'By': [210], 'combining': [211], 'UKM': [213, 235], 'VCR,': [216], 'establish': [218], 'constructing': [223], 'high-performing': [224], 'circuits.': [225], 'We': [226], 'finally': [227], 'benchmark': [228], 'relatively': [230], 'superior': [231], 'VCR': [238], 'via': [239], 'extensive': [240], 'numerical': [241], 'simulations': [242], 'multiple': [244], 'datasets.': [245]}",en,2023-05-30T00:40:52.642802
+https://openalex.org/W3179856365,,Nash equilibrium mapping vs Hamiltonian dynamics vs Darwinian evolution for some social dilemma games in the thermodynamic limit,Nash equilibrium mapping vs Hamiltonian dynamics vs Darwinian evolution for some social dilemma games in the thermodynamic limit,2021,2021-01-01,article,0,False,False,https://api.openalex.org/works?filter=cites:W3179856365,"{'How': [0], 'cooperation': [1], 'evolves': [2], 'and': [3, 43, 57, 65, 92, 162, 178, 214, 246], 'manifests': [4], 'itself': [5], 'in': [6, 120, 185, 241], 'the': [7, 31, 154, 158, 168, 175, 181, 209, 220, 238, 256, 259], 'thermodynamic': [8, 32], 'or': [9], 'infinite': [10], 'player': [11, 126, 236], 'limit': [12, 33], 'of': [13, 20, 34, 52, 67, 115, 117, 123, 160, 258], 'social': [14, 35, 187, 239], 'dilemma': [15, 188], 'games': [16], 'is': [17, 127], 'a': [18, 38, 82, 93, 124, 147, 269], 'matter': [19], 'intense': [21], 'speculation.': [22], 'Various': [23], 'analytical': [24, 84], 'methods': [25], 'have': [26], 'been': [27], 'proposed': [28], 'to': [29, 75, 110, 131, 141, 254], 'analyse': [30], 'dilemmas.': [36], 'In': [37, 77, 108], 'previous': [39], 'work': [40, 79], '[Chaos': [41], 'Solitons': [42], 'fractals': [44], '135,': [45], '109762(2020)]': [46], 'involving': [47], 'one': [48, 197], 'among': [49], 'us,': [50], 'two': [51], 'those': [53], 'methods,': [54], 'Hamiltonian': [55], 'Dynamics(HD)': [56], 'Nash': [58], 'equilibrium(NE)': [59], 'mapping': [60, 72, 91, 213, 265], 'were': [61], 'compared.': [62], 'The': [63], 'inconsistency': [64, 257], 'incorrectness': [66], 'HD': [68, 104, 111, 136, 210], 'approach': [69, 105], 'vis-a-vis': [70, 262], 'NE': [71, 90, 142, 212, 264], 'was': [73], 'brought': [74], 'light.': [76], 'this': [78], 'we': [80, 100], 'compare': [81], 'third': [83], 'method,': [85], 'i.e,': [86], 'Darwinian': [87], 'evolution(DE)': [88], 'with': [89, 129], 'numerical': [94, 215, 270], 'agent': [95, 216, 271], 'based': [96, 217, 272], 'approach.': [97, 211, 273], 'For': [98], 'completeness,': [99], 'give': [101], 'results': [102], 'for': [103, 150, 226, 237], 'as': [106, 139, 230, 232, 266, 268], 'well.': [107], 'contrast': [109], 'which': [112], 'involves': [113], 'maximisation': [114], 'payoffs': [116, 166], 'all': [118], 'individuals,': [119], 'DE,': [121], 'payoff': [122, 201, 234], 'single': [125], 'maximised': [128], 'respect': [130], 'its': [132], 'nearest': [133], 'neighbour.': [134], 'While,': [135], 'utterly': [137], 'fails': [138, 206], 'compared': [140], 'mapping,': [143], 'DE': [144, 204, 260], 'method': [145, 205, 218, 261], 'gives': [146], 'false': [148], 'positive': [149], 'game': [151, 228, 245], 'magnetisation': [152, 229], '--': [153, 164], 'net': [155], 'difference': [156], 'between': [157], 'fraction': [159], 'cooperators': [161], 'defectors': [163], 'when': [165, 196], 'obey': [167], 'condition': [169], 'a+d=b+c,': [170], 'wherein': [171], 'a,': [172], 'd': [173], 'represent': [174], 'diagonal': [176, 183], 'elements': [177, 184], 'b,': [179], 'c': [180], 'off': [182], 'symmetric': [186], 'games.': [189], 'When': [190], 'either': [191], 'a+d': [192], '=/=': [193], 'b+c': [194], 'or,': [195], 'looks': [198], 'at': [199], 'average': [200, 233], 'per': [202, 235], 'player,': [203], 'much': [207], 'like': [208], 'on': [219], 'other': [221], 'hand': [222], 'agree': [223], 'really': [224], 'well': [225, 231, 267], 'both': [227, 263], 'dilemmas': [240], 'question,': [242], 'i.e.,': [243], 'Hawk-Dove': [244], 'Public': [247], 'goods': [248], 'game.': [249], 'This': [250], 'paper': [251], 'thus': [252], 'bring': [253], 'light': [255]}",en,2023-05-30T01:54:51.997903
+
+===================================
+
+=== Checking works_ids ===
+CSV headers from csv-files/works_ids.csv:
+work_id,openalex,doi,mag,pmid,pmcid,arxiv,isbn13,isbn10,jstor
+
+Database schema for openalex.works_ids:
+ column_name | data_type 
+-------------+-----------
+ work_id     | text
+ openalex    | text
+ doi         | text
+ mag         | text
+ pmid        | text
+ pmcid       | text
+ arxiv       | text
+ isbn13      | text
+ isbn10      | text
+ jstor       | text
+(10 rows)
+
+
+First 5 lines of CSV data:
+https://openalex.org/W4312954092,https://openalex.org/W4312954092,https://doi.org/10.3030/641811,,,,,,,
+https://openalex.org/W4298954679,https://openalex.org/W4298954679,,,,,,,,
+https://openalex.org/W4367174134,https://openalex.org/W4367174134,https://doi.org/10.41014/jmb.2301.01011,,https://pubmed.ncbi.nlm.nih.gov/37100759,,,,,
+https://openalex.org/W3127850345,https://openalex.org/W3127850345,,3127850345,,,,,,
+https://openalex.org/W3179856365,https://openalex.org/W3179856365,,3179856365,,,,,,
+
+===================================
+
+=== Checking works_authorships ===
+CSV headers from csv-files/works_authorships.csv:
+work_id,author_position,author_id,institution_id,raw_affiliation_string
+
+Database schema for openalex.works_authorships:
+       column_name        | data_type 
+--------------------------+-----------
+ work_id                  | text
+ author_position          | text
+ author_id                | text
+ author_display_name      | text
+ author_orcid             | text
+ institution_id           | text
+ institution_display_name | text
+ institution_ror          | text
+ institution_type         | text
+ institution_country_code | text
+ raw_author_name          | text
+ raw_affiliation_string   | text
+ raw_affiliation_names    | ARRAY
+(13 rows)
+
+
+First 5 lines of CSV data:
+https://openalex.org/W4298954679,first,https://openalex.org/A5058811708,,
+https://openalex.org/W4298954679,middle,https://openalex.org/A5030850284,,
+https://openalex.org/W4298954679,middle,https://openalex.org/A5080057985,,
+https://openalex.org/W4298954679,middle,https://openalex.org/A5080689989,,
+https://openalex.org/W4298954679,last,https://openalex.org/A5025008933,,
+
+===================================
+
+=== Checking works_concepts ===
+CSV headers from csv-files/works_concepts.csv:
+work_id,concept_id,score
+
+Database schema for openalex.works_concepts:
+     column_name      | data_type 
+----------------------+-----------
+ work_id              | text
+ concept_id           | text
+ concept_display_name | text
+ concept_wikidata     | text
+ concept_level        | integer
+ score                | real
+(6 rows)
+
+
+First 5 lines of CSV data:
+https://openalex.org/W4312954092,https://openalex.org/C41008148,0.2882446
+https://openalex.org/W4298954679,https://openalex.org/C36248471,0.7766309
+https://openalex.org/W4298954679,https://openalex.org/C57879066,0.44468135
+https://openalex.org/W4298954679,https://openalex.org/C192562407,0.33320713
+https://openalex.org/W4298954679,https://openalex.org/C39432304,0.32752925
+
+===================================
+
+=== Checking works_referenced_works ===
+CSV headers from csv-files/works_referenced_works.csv:
+work_id,referenced_work_id
+
+Database schema for openalex.works_referenced_works:
+    column_name     | data_type 
+--------------------+-----------
+ work_id            | text
+ referenced_work_id | text
+(2 rows)
+
+
+First 5 lines of CSV data:
+https://openalex.org/W2103386241,https://openalex.org/W1966358942
+https://openalex.org/W2103386241,https://openalex.org/W1966822520
+https://openalex.org/W2103386241,https://openalex.org/W1978094951
+https://openalex.org/W2103386241,https://openalex.org/W2010967982
+https://openalex.org/W2103386241,https://openalex.org/W2024830218
+
+===================================
+
+=== Checking works_related_works ===
+CSV headers from csv-files/works_related_works.csv:
+work_id,related_work_id
+
+Database schema for openalex.works_related_works:
+   column_name   | data_type 
+-----------------+-----------
+ work_id         | text
+ related_work_id | text
+(2 rows)
+
+
+First 5 lines of CSV data:
+https://openalex.org/W4298954679,https://openalex.org/W1544686595
+https://openalex.org/W4298954679,https://openalex.org/W1822426157
+https://openalex.org/W4298954679,https://openalex.org/W2021087156
+https://openalex.org/W4298954679,https://openalex.org/W2165354314
+https://openalex.org/W4298954679,https://openalex.org/W2372379659
+
+===================================
+
+=== Checking works_open_access ===
+CSV headers from csv-files/works_open_access.csv:
+work_id,is_oa,oa_status,oa_url
+
+Database schema for openalex.works_open_access:
+         column_name         | data_type 
+-----------------------------+-----------
+ work_id                     | text
+ is_oa                       | boolean
+ oa_status                   | text
+ oa_url                      | text
+ any_repository_has_fulltext | boolean
+(5 rows)
+
+
+First 5 lines of CSV data:
+https://openalex.org/W4312954092,False,closed,
+https://openalex.org/W4298954679,True,green,https://hal.archives-ouvertes.fr/hal-00001006v3/file/lettreJV01June2004.pdf
+https://openalex.org/W4367174134,False,closed,
+https://openalex.org/W3127850345,False,closed,
+https://openalex.org/W3179856365,False,closed,
+
+===================================
+
+=== Checking works_counts_by_year ===
+CSV headers from csv-files/works_counts_by_year.csv:
+work_id,year,cited_by_count
+
+Database schema for openalex.works_counts_by_year:
+  column_name   | data_type 
+----------------+-----------
+ work_id        | text
+ year           | integer
+ cited_by_count | integer
+(3 rows)
+
+
+First 5 lines of CSV data:
+https://openalex.org/W2103386241,2022,1
+https://openalex.org/W2103386241,2020,2
+https://openalex.org/W2103386241,2019,1
+https://openalex.org/W2103386241,2017,1
+https://openalex.org/W2103386241,2016,1
+
+===================================
+

@@ -1,0 +1,16 @@
+-- Drop indexes before loading data
+DROP INDEX IF EXISTS openalex.works_id_idx;
+DROP INDEX IF EXISTS openalex.works_doi_idx;
+DROP INDEX IF EXISTS openalex.works_publication_year_idx;
+DROP INDEX IF EXISTS openalex.works_type_idx;
+DROP INDEX IF EXISTS openalex.works_cited_by_count_idx;
+DROP INDEX IF EXISTS openalex.works_authorships_work_id_idx;
+DROP INDEX IF EXISTS openalex.works_authorships_author_id_idx;
+DROP INDEX IF EXISTS openalex.works_concepts_work_id_idx;
+DROP INDEX IF EXISTS openalex.works_concepts_concept_id_idx;
+DROP INDEX IF EXISTS openalex.works_referenced_works_work_id_idx;
+DROP INDEX IF EXISTS openalex.works_related_works_work_id_idx;
+DROP INDEX IF EXISTS openalex.works_open_access_work_id_idx;
+DROP INDEX IF EXISTS openalex.works_counts_by_year_work_id_idx;
+DROP INDEX IF EXISTS openalex.works_ids_work_id_idx;
+DROP INDEX IF EXISTS openalex.works_ids_doi_idx;

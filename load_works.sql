@@ -1,0 +1,1 @@
+\copy openalex.works (id, doi, title, display_name, publication_year, publication_date, type, cited_by_count, is_retracted, is_paratext, cited_by_api_url, abstract_inverted_index, language, updated_date) from 'csv-files/works.csv' csv header;
